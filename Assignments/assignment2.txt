@@ -1,0 +1,52 @@
+# Assignment-2
+
+1) What is 'NPM'?
+- NPM is a package manager which consist of plether of packages which we can use in our project and is used to keep track of all the packages (or) dependencies.
+
+2) What is 'Parcel/Webpack'?Why do we need it?
+- 'Parcel/Webpack' is a bundler which we use in our project to bundle the files before we ship it to production.Not only the react which makes our app fast,but the bundlers such as parcel,webpack and vite which adds power to our application.
+
+3) What is '.parcle-cache'
+- .parcel-cache basically stores our project so whenever parcel builds a dev build or prod build, dist works along with it which makes it to build faster everytime.
+
+4) What is 'npx'?
+- npx is similar to npm but it is used to execute the dependencies that have been installed using npm.
+
+5) What is difference between 'dependencies' and 'devDependencies'
+- devDependencies is are the dependencies that are used during the development phase.
+- dependencies are the dependencies which are used in production phase also.
+
+6) What is Tree shaking?
+Tree shaking is basically an algorithm that is provided by the parcel dependency which is used to remove the unused code in our project.
+
+7) What is Hot Module Replacement?
+- HMR (or) Hot Module Replacement adds or removes modules while application is running,without a fullreload.Basically it automatically refreshes the web when you only save it.
+
+8) List down your favourite 5 superpowers of Parcel and describe any 3 of them in your own words.
+- Local server: Basically it creates a port and deploys our application in the server.
+- Dev build: when parcel is executed, it generates the development build and stores inside the 'dist' folder, which we see in our browsers.
+- File watching algorithm:Monitors each and every folder for arrival of files.upon arrival it implements a certain process.
+- Image optimization.
+- Gives a way to host the application in HTTPS when you want to test something that only uses SSL.
+
+9) What is '.gitignore'?What should we add and not add into it?
+- It's used to store the dependencies and folders that are not pushed on to production.we need to add those files which can be regenerated and not the ones that can't.
+
+10) What is the difference between 'package.json' and 'package-lock.json'
+- package.json keeps track on the dependencies that we use.It can also be used to keep track the exact version by removing the caret or the tilde in it.
+- package-lock.json used to keep track on the exact version of the packages and keeps record of it.
+
+11) Why should I not modify 'package-lock.json'? 
+- Because these are used to keep track of exact version of the dependencies and their own dependencies and so on.
+Basically it maintains the transitive dependencies.
+
+12) What is 'node_modules'?Is it a good idea to push that on git?
+- node_modules which are kind of database,which are collection of packages (or) dependencies.It not only stores the dependency that we install but also comes with many other dependencies that our dependency use.Kind of transitive dependencies.
+
+13) What is the 'dist' folder?
+- 'dist' is the development build that is build when parcel is executed.
+
+14) What is 'browserlists'
+- To make our app compactable with older version of browsers we use browser list.We need to tell it what are all the versions of browsers we need our app to support with in.
+
+
