@@ -1,21 +1,11 @@
-import { useEffect, useState } from "react";
-import { RES_MENU_CARD_URL } from '../utils/constant';
 import { useParams } from 'react-router'
+import useRestaurantMenu from "../utils/useRestaurantMenu";
+import Shimer from '../components/Shimer';
 
 const RestaurantMenu = () => {
-    const [menuItems, setMenuItems] = useState([]);
-    const { params } = useParams();
-    useEffect(() => {
-        fetchMenu();
-    }, []);
-
-    const fetchMenu = async () => {
-        const data = await fetch(RES_MENU_CARD_URL + params);
-        const json = await data?.json();
-        setMenuItems(json?.data?.cards);
-    }
-    console.log(menuItems)
-    if (menuItems === undefined || menuItems.length == 0) return <span>Menu</span>;
+    const { resId } = useParams();
+    const resInfo = useRestaurantMenu(resId);
+    if (resInfo == null) return <Shimer />;
     const {
         name,
         cuisines,
@@ -25,7 +15,7 @@ const RestaurantMenu = () => {
         city,
         avgRatingString,
         totalRatingsString,
-    } = menuItems[0]?.card?.card?.info;
+    } = resInfo?.data?.cards[0]?.card?.card?.info;
 
     return (
         <div className="restaurant-menu">
@@ -39,11 +29,11 @@ const RestaurantMenu = () => {
             <h3>{totalRatingsString}</h3>
             <h2>Menu</h2>
             <ul>
-                {menuItems[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card?.itemCards?.map((item) => {
+                {resInfo?.data?.cards[2].groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.itemCards?.map((item) => {
                     return (
-                        <span key={item.card.info.id}>
+                        <h4 key={item.card.info.id}>
                             {item.card.info.name} -- {item.card.info.price / 100}
-                        </span>
+                        </h4>
                     )
                 })}
 
